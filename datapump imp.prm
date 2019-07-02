@@ -1,0 +1,12 @@
+[root@cluster1 ~] vi file.prm
+
+DIRECTORY = pump
+DUMPFILE = agito_mig%u.dmp
+LOGFILE = imp.LOG
+parallel=16
+remap_tablespace=AE_NDX:users,APPLICATION_UNUSED:users,APPLICATION_TBL:users,AUDIT_TBL:users,APPLICATION_IND:users,AUDIT_IND:users,BESPROD_LOG_TBL:users,BESPROD_LOG_IND:users,GEV_TBL:users,GEV_IND:users,HAYMER_TBL:users,HAYMER_IND:users,KOMISYON_TBL:users,TERRARIUM_TBL:users,TERRARIUM_IND:users,BESPROD_REPORT_TBL:users,BESPROD_REPORT_IND:users,BESPROD_OTHER_TBL:users,BESPROD_OTHER_IND:users,BESPROD_CORE_TBL:users,BESPROD_CORE_IND:users,TEMP01:TEMP,TEMP02:TEMP
+exclude=schema:"in\('ANONYMOUS\', 'APPQOSSYS\', 'AUDSYS\', 'CTXSYS\', 'DBSFWUSER\', 'DBSNMP\', 'DIP\', 'DVF\', 'DVSYS\', 'GGSYS\', 'GSMADMIN_INTERNAL\', 'GSMCATUSER\', 'GSMUSER\', 'LBACSYS\', 'MDDATA\', 'MDSYS\', 'OJVMSYS\', 'OLAPSYS\', 'ORACLE_OCM\', 'ORDDATA\', 'ORDPLUGINS\', 'ORDSYS\', 'OUTLN\', 'REMOTE_SCHEDULER_AGENT\', 'SI_INFORMTN_SCHEMA\', 'SPATIAL_CSW_ADMIN_USR\', 'SYS\', 'SYS$UMF\', 'SYSBACKUP\', 'SYSDG\', 'SYSKM\', 'SYSRAC\', 'SYSTEM\', 'WMSYS\', 'XDB\', 'XS$NULL\' )"
+
+
+
+#impdp parfile=file.prm  (this command you can start your impdpd command)
