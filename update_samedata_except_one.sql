@@ -9,3 +9,24 @@ select MIN(ROWID) from
  ORDERS.TEST7
 GROUP BY KOLON1 
 )
+
+
+
+
+
+delete from $table_name where rowid in
+  (
+  select "rowid" from
+     (select "rowid", rank_n from
+         (select rank() over (partition by $primary_key order by rowid) rank_n, rowid as "rowid"
+             from $table_name
+             where $primary_key in
+                (select $primary_key from $table_name
+                  group by $all_columns
+                  having count(*) > 1
+                )
+             )
+         )
+     where rank_n > 1
+  )
+One of th
