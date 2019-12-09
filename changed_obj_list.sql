@@ -1,0 +1,8 @@
+ select OWNER as ownr,OBJECT_NAME,OBJECT_TYPE , COUNT (*) OVER (PARTITION BY LAST_DDL_TIME )
+           from  dba_objects 
+      where 1=1
+      and OBJECT_TYPE IN ('PACKAGE','PROCEDURE','FUNCTION')
+      and owner= 'BESPROD'
+      AND to_date(LAST_DDL_TIME) >= TO_dATE('2018.01.01','YYYY.DD.MM')
+      GROUP BY OWNER,OBJECT_NAME,LAST_DDL_TIME,OBJECT_TYPE
+      ORDER BY LAST_DDL_TIME DESC
