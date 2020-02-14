@@ -1,3 +1,20 @@
+/*
+Run Function
+
+DECLARE 
+  RetVal NUMBER;
+
+BEGIN 
+  RetVal := SYS.DROP_USER_DMP;
+  COMMIT; 
+END; 
+
+
+*/
+
+
+
+
 CREATE OR REPLACE FUNCTION SYS.DROP_USER_DMP
 RETURN NUMBER
 AS 
